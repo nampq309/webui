@@ -23,7 +23,7 @@ import org.exoplatform.webui.core.UIPortletApplication;
 //this part is configuration of the portlet, we set the path to the template groovy.
  @ComponentConfig(
     lifecycle = UIApplicationLifecycle.class,
-    template = "app:/groovy/webui/portlet/WebUIPortletExample.gtmpl"
+    template = "app:/groovy/webui/portlet/webui.gtmpl"
   )
 public class WebUIPortletExample extends UIPortletApplication {
 

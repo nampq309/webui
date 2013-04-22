@@ -24,7 +24,7 @@
     </supports>
 
     <supported-locale>en</supported-locale>
-    <resource-bundle>locale.testRomainPortlet</resource-bundle>     
+    <resource-bundle>locale.webui</resource-bundle>     
     <portlet-info>
       <title>My WebUI Portlet</title>
       <short-title>WebUI Portlet</short-title>
