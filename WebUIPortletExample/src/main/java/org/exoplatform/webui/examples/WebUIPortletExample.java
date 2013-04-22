@@ -17,18 +17,33 @@
 package org.exoplatform.webui.examples;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 
 //this part is configuration of the portlet, we set the path to the template groovy.
  @ComponentConfig(
     lifecycle = UIApplicationLifecycle.class,
-    template = "app:/groovy/webui/portlet/webui.gtmpl"
+    template = "app:/groovy/webui/portlet/webui.gtmpl",
+        events = {
+        @EventConfig(listeners = WebUIPortletExample.OpenPopupActionListener.class)
+    }
   )
 public class WebUIPortletExample extends UIPortletApplication {
 
    public WebUIPortletExample() throws Exception {
      
    }
+   
+   static public class OpenPopupActionListener extends EventListener<WebUIPortletExample> {
+
+     public void execute(Event<WebUIPortletExample> event) throws Exception {
+         System.out.println("HelloWorld");
+     }
+  }
 
 }
+ 
+
