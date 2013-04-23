@@ -1,0 +1,28 @@
+<% uicomponent.renderChildren(); %>
+
+<div class="UIAction"> 
+  <div class="ActionContainer">
+    <div class="ActionButton"> 
+      <div class="LightBlueStyle">
+        <div class="ButtonLeft">
+          <div class="ButtonRight">
+            <div class="ButtonMiddle">
+              <a href="<%=uicomponent.event("OpenPopup", "")%>">Open Popup</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+<%
+def childs = uicomponent.getChildren();
+
+<% uiform.begin() %>
+
+<div><%uiform.renderField(childs.get(0)); %></div>
+
+
+<% uiform.end() %>
+
+%>

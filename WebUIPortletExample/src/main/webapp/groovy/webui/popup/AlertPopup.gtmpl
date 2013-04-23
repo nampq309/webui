@@ -1,0 +1,3 @@
+<div id="<%=uicomponent.getId();%>">
+	HelloWorld in a popup
+</div>

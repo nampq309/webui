@@ -26,7 +26,7 @@ import org.exoplatform.webui.event.EventListener;
 //this part is configuration of the portlet, we set the path to the template groovy.
  @ComponentConfig(
     lifecycle = UIApplicationLifecycle.class,
-    template = "app:/groovy/webui/portlet/webui.gtmpl",
+    template = "app:/groovy/webui/portlet/PortletContainer.gtmpl",
         events = {
         @EventConfig(listeners = WebUIPortletExample.OpenPopupActionListener.class)
     }
@@ -34,7 +34,8 @@ import org.exoplatform.webui.event.EventListener;
 public class WebUIPortletExample extends UIPortletApplication {
 
    public WebUIPortletExample() throws Exception {
-     
+     UILoginForm loginForm = createUIComponent(UILoginForm.class, null, null);
+     addChild(loginForm);
    }
    
    static public class OpenPopupActionListener extends EventListener<WebUIPortletExample> {
