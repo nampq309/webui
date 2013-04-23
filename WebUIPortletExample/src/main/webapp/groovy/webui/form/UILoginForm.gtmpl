@@ -1,28 +1,16 @@
-<% uicomponent.renderChildren(); %>
-
-<div class="UIAction"> 
-  <div class="ActionContainer">
-    <div class="ActionButton"> 
-      <div class="LightBlueStyle">
-        <div class="ButtonLeft">
-          <div class="ButtonRight">
-            <div class="ButtonMiddle">
-              <a href="<%=uicomponent.event("OpenPopup", "")%>">Open Popup</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> 
-</div>
 <%
+import org.exoplatform.webui.core.UIPopupWindow;
+
 def childs = uicomponent.getChildren();
 
+%>
 <% uiform.begin() %>
 
 <div><%uiform.renderField(childs.get(0)); %></div>
+<div><%uiform.renderField(childs.get(1)); %></div>
 
+<button type="button" title="Save" id="saveButton" onclick="<%=uicomponent.event("Save")%>" >Save</button>
 
 <% uiform.end() %>
 
-%>
+<div><% uicomponent.renderChild(UIPopupWindow.class) %></div>

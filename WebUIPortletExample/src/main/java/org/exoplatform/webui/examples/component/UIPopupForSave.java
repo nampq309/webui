@@ -18,15 +18,13 @@ package org.exoplatform.webui.examples.component;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 @ComponentConfig(
-  lifecycle = UIApplicationLifecycle.class,
-  template = "app:/groovy/webui/popup/AlertPopup.gtmpl"
+  template = "app:/groovy/webui/popup/UIPopupForSave.gtmpl"
 )
-public class AlertPopup extends UIComponent {
+public class UIPopupForSave extends UIComponent {
   
-  public AlertPopup() throws Exception {
+  public UIPopupForSave() throws Exception {
     
   }
 

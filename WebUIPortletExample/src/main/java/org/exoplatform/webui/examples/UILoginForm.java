@@ -23,7 +23,7 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
-import org.exoplatform.webui.examples.component.AlertPopup;
+import org.exoplatform.webui.examples.component.UIPopupForSave;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 
@@ -38,13 +38,15 @@ import org.exoplatform.webui.form.UIFormStringInput;
 public class UILoginForm extends UIForm {
   
   public UILoginForm() throws Exception {
-    UIFormStringInput inputText = new UIFormStringInput("TextInput", null, null);
+    UIFormStringInput inputText = new UIFormStringInput("TextInput1", null, null);
     addUIFormInput(inputText);
+    UIFormStringInput inputText2 = new UIFormStringInput("TextInput2", null, null);
+    addUIFormInput(inputText2);
     
     UIPopupWindow popup = addChild(UIPopupWindow.class, null, null);
     popup.setWindowSize(400, 300);
     
-    AlertPopup alertPopup = createUIComponent(AlertPopup.class, null, null);
+    UIPopupForSave alertPopup = createUIComponent(UIPopupForSave.class, null, null);
     popup.setUIComponent(alertPopup);
     popup.setRendered(false);
     addChild(popup);
@@ -55,6 +57,10 @@ public class UILoginForm extends UIForm {
   static public class SaveActionListener extends EventListener<UILoginForm> {
     
     public void execute(Event<UILoginForm> event) throws Exception {
+      String txtValue1 = event.getRequestContext().getRequestParameter("TextInput1"); // to get a value from a form
+      String txtValue2 = event.getRequestContext().getRequestParameter("TextInput2"); // to get a value from a form
+      System.out.println("Value 1:"+txtValue1);
+      System.out.println("Value 2:"+ txtValue2);
       UILoginForm form = event.getSource();
       UIPopupWindow popup = form.getChild(UIPopupWindow.class);
       popup.setRendered(true);
